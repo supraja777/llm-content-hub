@@ -1,0 +1,4 @@
+BASE_URL = "https://ragyfied.com"
+BATCH_SIZE = 10
+CHUNK_SIZE = 800
+CHUNK_OVERLAP = 150

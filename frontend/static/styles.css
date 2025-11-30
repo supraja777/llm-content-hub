@@ -1,4 +1,4 @@
-/* Reset */
+/* ========= GLOBAL RESET ========= */
 * {
     margin: 0;
     padding: 0;
@@ -7,74 +7,102 @@
 }
 
 body {
-    background: radial-gradient(circle at top left, #1f1c2c, #928dab);
-    background-size: cover;
+    background: #111;
+    color: #fff;
+    padding: 30px;
     min-height: 100vh;
+}
+
+/* ========= HEADER ========= */
+.header {
     display: flex;
     justify-content: center;
-    padding: 40px;
+    margin-bottom: 25px;
 }
 
-/* Container */
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4cc9f0;
+    letter-spacing: 1px;
+}
+
+/* ========= FLASHCARD GRID ========= */
 .container {
     width: 95%;
-    max-width: 900px;
-    backdrop-filter: blur(18px);
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 20px;
-    padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
 }
 
-/* Title */
-.title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-/* Flashcards Grid */
 #flashcard-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 22px;
 }
 
-/* Flashcard Style */
+/* ========= FLASHCARD ========= */
 .flashcard {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 18px;
-    padding: 20px;
-    min-height: 160px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: white;
-    transition: 0.2s ease;
+    background: #181818;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 22px;
+    border-radius: 16px;
     cursor: pointer;
+    transition: 0.26s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 185px;
 }
 
-/* Hover animation */
+/* Hover */
 .flashcard:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
-    background: rgba(255, 255, 255, 0.22);
+    background: #1f1f1f;
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.18);
 }
 
-/* "Click to read more" instruction */
-.instruction {
-    font-size: 0.85rem;
-    opacity: 0.75;
-    margin-bottom: 12px;
-    font-style: italic;
+/* ========= FLASHCARD HEADER ========= */
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Summary Content */
-.flashcard .content {
+.tag {
+    background: #262626;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    color: #c6c6c6;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
     font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 400;
+    opacity: 0.65;
+    transition: 0.2s;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
+/* ========= CONTENT ========= */
+.content {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.45rem;
+    color: #e8e8e8;
+}
+
+/* ========= FOOTER TEXT ========= */
+.footer-text {
+    margin-top: 18px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    color: #a3a3a3;
 }

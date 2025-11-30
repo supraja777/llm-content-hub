@@ -4,7 +4,34 @@ LLM Pulse automates web content ingestion, vectorizes knowledge, and powers mult
 
 ---
 
-# 🎯 1. Mock Interview Pipeline 
+# 📰 1. LLM Daily Updates Retrieval Pipeline
+
+![alt text](flashcards.png)
+
+This pipeline extracts **today’s newly ingested content**, summarizes it using LLMs, and delivers crisp daily updates for any user-selected topic.
+
+## Workflow
+
+```mermaid
+flowchart TD
+    A[User Query] --> B[Load FAISS Store]
+    B --> C[Similarity Search]
+    C --> D[Filter Docs by Today]
+    D --> E[LLM Summaries]
+    E --> F[Optional: Fact-Check]
+    F --> G[Final Updates Returned]
+```
+
+### Output Example
+
+```
+Source: https://ragyfied.com/articles/attention-is-all-you-need-explained
+Summary: Detailed breakdown of attention mechanisms in modern LLMs...
+```
+
+---
+
+# 🎯 2. Mock Interview Pipeline 
 
 * **Adaptive question generation**
 * **Router Chain decision-making**
@@ -93,7 +120,7 @@ Decision: Correct — Using retrieved document
 
 ---
 
-# 📥 2. LLM Data Ingestion & Vectorization Pipeline
+# 📥 3. LLM Data Ingestion & Vectorization Pipeline
 
 A fully automated workflow that crawls new articles daily, deduplicates URLs, chunks text, generates embeddings, and stores everything inside a **FAISS vector database**.
 
@@ -153,31 +180,6 @@ Document(
 ```bash
 pip install -r requirements.txt
 python pipeline.py
-```
-
----
-
-# 📰 3. LLM Daily Updates Retrieval Pipeline
-
-This pipeline extracts **today’s newly ingested content**, summarizes it using LLMs, and delivers crisp daily updates for any user-selected topic.
-
-## Workflow
-
-```mermaid
-flowchart TD
-    A[User Query] --> B[Load FAISS Store]
-    B --> C[Similarity Search]
-    C --> D[Filter Docs by Today]
-    D --> E[LLM Summaries]
-    E --> F[Optional: Fact-Check]
-    F --> G[Final Updates Returned]
-```
-
-### Output Example
-
-```
-Source: https://ragyfied.com/articles/attention-is-all-you-need-explained
-Summary: Detailed breakdown of attention mechanisms in modern LLMs...
 ```
 
 ---

@@ -8,15 +8,29 @@
 </head>
 <body>
 
-<div class="container">
+<header class="header">
+    <h1 class="logo">LLM Flashcards</h1>
+</header>
 
-    <h1 class="title">📘 Latest LLM Updates – Flashcards</h1>
+<div class="container">
 
     <div id="flashcard-container">
         {% for card in cards %}
         <div class="flashcard">
-            <p class="instruction">Click on the flashcard to read more</p>
+
+            <div class="flashcard-header">
+                <span class="tag">Knowledge</span>
+
+                <div class="icons">
+                    <span class="icon">♡</span>
+                    <span class="icon">🔖</span>
+                </div>
+            </div>
+
             <p class="content">{{ card.summary }}</p>
+
+            <p class="footer-text">Click to read more →</p>
+
         </div>
         {% endfor %}
     </div>

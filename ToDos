@@ -1,3 +1,13 @@
-1. UI - Fix URL - Navigation
+1. UI - Fix URL in flashcard - Navigation
 2. Prompt rewriting - Query expansion
-3. 
+3. First page - from there nav to questions / flash cards
+
+Data ingestion
+
+4. other urls for data ingestion
+5 cron job for daily pull
+
+mock pipeline
+
+5. Checking if answers are actually related to the question - grader
+5. hallucination detector in answer generation

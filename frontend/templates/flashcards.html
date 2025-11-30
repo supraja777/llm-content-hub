@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Flashcards</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">📘 Latest LLM Updates – Flashcards</h1>
+
+    <div id="flashcard-container">
+        {% for card in cards %}
+        <div class="flashcard">
+            <p class="instruction">Click on the flashcard to read more</p>
+            <p class="content">{{ card.summary }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

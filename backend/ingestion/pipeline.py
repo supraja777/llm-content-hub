@@ -1,3 +1,6 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 from crawler import load_documents, get_all_blog_links
 from storage import url_store
 from constants import BATCH_SIZE

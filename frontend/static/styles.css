@@ -1,0 +1,80 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top left, #1f1c2c, #928dab);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* Container */
+.container {
+    width: 95%;
+    max-width: 900px;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Flashcards Grid */
+#flashcard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Flashcard Style */
+.flashcard {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 20px;
+    min-height: 160px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover animation */
+.flashcard:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* "Click to read more" instruction */
+.instruction {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+/* Summary Content */
+.flashcard .content {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}

@@ -20,35 +20,48 @@ setup_logging()
 
 faiss_index = load_vector_db(embeddings, path = PATH)
 
-# 1 Generate set of questions
+def generate_questions_and_answers(mock_interview_topic: str):
+    # 1 Generate set of questions
+    questions = generate_questions(mock_interview_topic) 
 
-questions = generate_questions(mock_interview_topic) # List of ques and tag
+    # 2 Generate answers for each question
+    #   2.a First the RAG will decide if we need to access vetor db 
+    #   2.b If RAG will be able to answer it on its own then no need of vector db
 
-# 2 Generate answers for each question
-#   2.a First the RAG will decide if we need to access vetor db 
-#   2.b If RAG will be able to answer it on its own then no need of vector db
+    router_results =  [(get_router_decision(question), question) for question in questions]
 
-router_results =  [(get_router_decision(question), question) for question in questions]
+    # 3 Generate answers - If LLM_ONLY - then use LLM only otherwise - CRAG (VectorDB + WebSearch)
 
+    result = []
+
+    for router_result in router_results:
+        decision = router_result[0][0]
+        explanation = router_result[0][1]
+        question = router_result[1][0]
+
+        if decision == LLM_ONLY:
+            logging.info("Decision is LLM only")
+            answer = generate_answer(question)
+            result.append((question, answer))
+        elif decision == VECTOR_DB:
+            logging.info("Decision is VECTOR DB")
+            question, answer = crag_process(question, faiss_index)
+            result.append((question, answer))
+
+        result.append({
+            "question": question,
+            "answer": answer
+        })
+    return result
+
+
+generate_questions_and_answers(mock_interview_topic)
+
+# TODO
 # For each answer generated - grade it, 
 # if grade is below a threshold then generate again, check if websearch is required
 # Continue till max_num of retries
 # check for hallucination in the end
-
-# 3 Generate answers - If LLM_ONLY - then use LLM only otherwise - CRAG (VectorDB + WebSearch)
-
-for router_result in router_results:
-    decision = router_result[0][0]
-    explanation = router_result[0][1]
-    question = router_result[1][0]
-
-    if decision == LLM_ONLY:
-        logging.info("Decision is LLM only")
-        answer = generate_answer(question)
-    elif decision == VECTOR_DB:
-        logging.info("Decision is VECTOR DB")
-        question, answer = crag_process(question, faiss_index)
-    
     
 
 

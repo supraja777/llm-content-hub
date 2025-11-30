@@ -12,7 +12,7 @@ def build_or_update_vector_db(chunks, embeddings, path = PATH):
     db.save_local(path)
     return db
 
-def load_vector_db(embeddings, path = PATH):
+def load_vector_db(embeddings, path):
     db = FAISS.load_local(path, embeddings, allow_dangerous_deserialization = True)
     return db
 

@@ -1,6 +1,6 @@
 LLM_ONLY = "LLM_ONLY"
 VECTOR_DB = "VECTOR_DB"
-PATH = "faiss_store"
+PATH = "../faiss_store"
 
 BASE_URL = "https://ragyfied.com"
 BATCH_SIZE = 10
